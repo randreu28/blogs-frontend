@@ -48,7 +48,11 @@ export default function AuthForm() {
           onChange={({ target }) => setPassword(target.value)}
         />
       </div>
-      <button className="rounded bg-blue-300 px-3 py-2" type="submit">
+      <button
+        className="rounded bg-blue-300 px-3 py-2 disabled:bg-blue-100"
+        type="submit"
+        disabled={!username || !password}
+      >
         Login
       </button>
     </form>
