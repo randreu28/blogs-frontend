@@ -3,7 +3,7 @@ import { useState } from "react";
 
 const baseUrl = "http://localhost:3001/api";
 
-export default function useAction(token: string) {
+export default function useAction(token: string = "") {
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [error, setError] = useState<string>();
 
