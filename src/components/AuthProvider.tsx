@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from "react";
-import type { AuthPayload } from "../types";
+import type { AuthPayload } from "../lib/types";
 
 export const AuthContext = React.createContext<AuthPayload | undefined>(
   undefined,

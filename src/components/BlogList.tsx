@@ -1,8 +1,8 @@
 import Blog from "./Blog";
 import Error from "./Error";
 import Spinner from "./Spinner";
-import useResource from "../hooks/useResource";
-import { BlogType } from "../types";
+import useResource from "../lib/hooks/useResource";
+import { BlogType } from "../lib/types";
 
 export default function BlogList() {
   const { data: blogs, error, isLoading } = useResource<BlogType>("/blogs");

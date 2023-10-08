@@ -1,4 +1,4 @@
-import type { BlogType } from "../types";
+import type { BlogType } from "../lib/types";
 
 type Props = {
   blog: BlogType;

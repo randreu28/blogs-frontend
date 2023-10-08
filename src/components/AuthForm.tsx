@@ -1,6 +1,6 @@
 import axios from "axios";
 import { useState } from "react";
-import { AuthPayload } from "../types";
+import { AuthPayload } from "../lib/types";
 import { toast } from "sonner";
 
 export default function AuthForm() {

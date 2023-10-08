@@ -1,6 +1,6 @@
 import AuthForm from "./components/AuthForm";
 import BlogList from "./components/BlogList";
-import useAuth from "./hooks/useAuth";
+import useAuth from "./lib/hooks/useAuth";
 
 export default function App() {
   const user = useAuth();
