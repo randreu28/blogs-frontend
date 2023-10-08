@@ -25,3 +25,10 @@ export type UserType = {
   };
   id: string;
 };
+
+export type AuthPayload = {
+  id: string;
+  username: string;
+  name: string;
+  token: string;
+};
