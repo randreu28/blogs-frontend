@@ -18,3 +18,20 @@ export function postNewBlog(
     { headers: { Authorization: `Bearer ${token}` } },
   );
 }
+
+export function updateBlog(
+  updatedBlog: {
+    id: string;
+    title: string;
+    author: string;
+    url: string;
+    likes: number;
+  },
+  token: string,
+) {
+  return axios.put<BlogType>(
+    import.meta.env.VITE_API_URL + "/blogs/" + updatedBlog.id,
+    updatedBlog,
+    { headers: { Authorization: `Bearer ${token}` } },
+  );
+}
