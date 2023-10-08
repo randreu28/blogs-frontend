@@ -1,5 +1,6 @@
 import AuthForm from "./components/AuthForm";
 import BlogList from "./components/BlogList";
+import NewBlogForm from "./components/NewBlogForm";
 import useAuth from "./lib/hooks/useAuth";
 
 export default function App() {
@@ -21,7 +22,7 @@ export default function App() {
   return (
     <div className="p-5">
       <h1 className="py-3 text-center text-3xl">Blogs</h1>
-      <div className="p-5 text-sm text-gray-500 md:float-right md:text-right">
+      <div className="py-5 text-sm text-gray-500 md:float-right md:text-right">
         <p>
           Signed in as <b>{user.name}</b>
         </p>
@@ -29,6 +30,7 @@ export default function App() {
           Log out
         </button>
       </div>
+      <NewBlogForm />
       <BlogList />
     </div>
   );
