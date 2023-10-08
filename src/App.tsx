@@ -1,4 +1,6 @@
 import Blog from "./components/Blog";
+import Error from "./components/Error";
+import Spinner from "./components/Spinner";
 import useApi from "./hooks/useApi";
 import { BlogType } from "./types";
 
@@ -6,11 +8,11 @@ export default function App() {
   const { data: blogs, error, isLoading } = useApi<BlogType>("/blogs");
 
   if (error) {
-    return <p>{error}</p>;
+    return <Error error={error} />;
   }
 
   if (isLoading) {
-    <p>loading</p>;
+    return <Spinner />;
   }
 
   return (
