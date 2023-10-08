@@ -1,11 +1,11 @@
 import Blog from "./Blog";
 import Error from "./Error";
 import Spinner from "./Spinner";
-import useApi from "../hooks/useApi";
+import useResource from "../hooks/useResource";
 import { BlogType } from "../types";
 
 export default function BlogList() {
-  const { data: blogs, error, isLoading } = useApi<BlogType>("/blogs");
+  const { data: blogs, error, isLoading } = useResource<BlogType>("/blogs");
 
   if (error) {
     return <Error error={error} />;

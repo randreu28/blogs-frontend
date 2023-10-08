@@ -1,7 +1,7 @@
 import { useEffect, useState } from "react";
 import type { AuthPayload } from "../types";
 
-export default function useUser() {
+export default function useAuth() {
   const [user, setUser] = useState<AuthPayload>();
 
   useEffect(() => {
