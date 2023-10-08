@@ -1,18 +1,34 @@
+import axios from "axios";
 import { useState } from "react";
-
-type FormContent = {
-  username: string;
-  password: string;
-};
+import { AuthPayload } from "../types";
+import { toast } from "sonner";
 
 export default function AuthForm() {
   const [username, setUsername] = useState<string>("");
   const [password, setPassword] = useState<string>("");
 
-  async function handleLogin(e: React.FormEvent<HTMLFormElement>) {
+  function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
 
-    //...
+    const res = axios.post<AuthPayload>(
+      import.meta.env.VITE_API_URL + "/login",
+      {
+        username,
+        password,
+      },
+    );
+
+    toast.promise<Awaited<typeof res>>(res, {
+      loading: "Loading...",
+      success: ({ data: user }) => {
+        window.localStorage.setItem("user", JSON.stringify(user));
+        setTimeout(() => {
+          window.location.reload();
+        }, 3000);
+        return `Welcome, ${user.name}. Redirecting...`;
+      },
+      error: "Something when wrong. Please try again",
+    });
   }
 
   return (
