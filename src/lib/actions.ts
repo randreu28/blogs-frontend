@@ -35,3 +35,10 @@ export function updateBlog(
     { headers: { Authorization: `Bearer ${token}` } },
   );
 }
+
+export function deleteBlog(blogId: string, token: string) {
+  return axios.delete<BlogType>(
+    import.meta.env.VITE_API_URL + "/blogs/" + blogId,
+    { headers: { Authorization: `Bearer ${token}` } },
+  );
+}
