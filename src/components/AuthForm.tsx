@@ -1,7 +1,6 @@
-import axios from "axios";
 import { useState } from "react";
-import { AuthPayload } from "../lib/types";
 import { toast } from "sonner";
+import { getJsonWebToken } from "../lib/actions";
 
 export default function AuthForm() {
   const [username, setUsername] = useState<string>("");
@@ -9,14 +8,7 @@ export default function AuthForm() {
 
   function handleLogin(e: React.FormEvent<HTMLFormElement>) {
     e.preventDefault();
-
-    const res = axios.post<AuthPayload>(
-      import.meta.env.VITE_API_URL + "/login",
-      {
-        username,
-        password,
-      },
-    );
+    const res = getJsonWebToken(username, password);
 
     toast.promise<Awaited<typeof res>>(res, {
       loading: "Loading...",
