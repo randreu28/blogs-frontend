@@ -71,12 +71,14 @@ export default function Blog({ blog }: Props) {
             <Heart isActive={isLiked} />
             {isLiked ? blog.likes + 1 : blog.likes}
           </button>
-          <button
-            onClick={handleDelete}
-            className="rounded bg-red-300 px-2 py-1 text-black"
-          >
-            Delete blog
-          </button>
+          {user.id === blog.user.id && (
+            <button
+              onClick={handleDelete}
+              className="rounded bg-red-300 px-2 py-1 text-black"
+            >
+              Delete blog
+            </button>
+          )}
         </div>
       )}
     </div>
