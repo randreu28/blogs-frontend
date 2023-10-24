@@ -51,6 +51,7 @@ export default function Blog({ blog }: Props) {
       <div className="flex items-center gap-3">
         <h2 className="text-xl">{blog.title}</h2>
         <button
+          data-cy="hide-button"
           onClick={() => setIsHidden(!isHidden)}
           className="text-xs text-blue-500 underline"
         >
